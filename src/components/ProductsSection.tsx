@@ -36,7 +36,11 @@ const products = [
   },
 ];
 
-export function ProductsSection() {
+interface ProductsSectionProps {
+  onViewProducts: () => void;
+}
+
+export function ProductsSection({ onViewProducts }: ProductsSectionProps) {
   return (
     <section id="productos" className="bg-white py-12 lg:py-16 border-t border-[#54565a]/10 w-full">
       <div className="w-full">
@@ -94,6 +98,7 @@ export function ProductsSection() {
 
                   <div className="space-y-3 pt-2 mt-auto">
                     <button
+                      onClick={onViewProducts}
                       className="w-full bg-[#ce0e2d] text-white text-lg font-semibold py-3 rounded-full hover:bg-[#a00b24] transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center text-center"
                       style={{ fontFamily: "'Poppins', sans-serif" }}
                     >
@@ -113,6 +118,7 @@ export function ProductsSection() {
 
           <div className="flex justify-center mt-12 lg:mt-16">
             <button
+              onClick={onViewProducts}
               className="flex items-center gap-3 text-[#ce0e2d] hover:text-[#a00b24] transition-colors duration-300 text-xl lg:text-2xl font-semibold"
               style={{ fontFamily: "'Parkinsans', sans-serif" }}
             >

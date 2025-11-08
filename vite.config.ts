@@ -38,6 +38,7 @@
         'figma:asset/4940ddb60379584602da76a5233ad3e625e9ee93.png': path.resolve(__dirname, './src/assets/4940ddb60379584602da76a5233ad3e625e9ee93.png'),
         'figma:asset/4209e85f409dcc47dd3e57ec24e817587b8e8b69.png': path.resolve(__dirname, './src/assets/4209e85f409dcc47dd3e57ec24e817587b8e8b69.png'),
         'figma:asset/3af331167337d881473434dc0549c27401cac051.png': path.resolve(__dirname, './src/assets/3af331167337d881473434dc0549c27401cac051.png'),
+        'figma:asset/2a767d84a55e281636ad5fa00a38a42811ff70bb.png': path.resolve(__dirname, './src/assets/2a767d84a55e281636ad5fa00a38a42811ff70bb.png'),
         'figma:asset/1d7eea53cdf4d9493aabefca499e6cedea51e1ce.png': path.resolve(__dirname, './src/assets/1d7eea53cdf4d9493aabefca499e6cedea51e1ce.png'),
         'figma:asset/04f10d29818c4202b80aa718b3a0b0c14f99eb03.png': path.resolve(__dirname, './src/assets/04f10d29818c4202b80aa718b3a0b0c14f99eb03.png'),
         'figma:asset/039527c5637a1f6b4c86b1ebb6beafcbca6a7253.png': path.resolve(__dirname, './src/assets/039527c5637a1f6b4c86b1ebb6beafcbca6a7253.png'),
@@ -76,8 +77,6 @@
     },
     build: {
       target: 'esnext',
-      // Use the conventional `dist` output directory so hosting (Netlify)
-      // defaults match. Netlify by default looks for `dist` as the publish dir.
       outDir: 'dist',
     },
     server: {

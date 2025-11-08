@@ -1,12 +1,17 @@
 import svgPaths from "../imports/svg-jj59f59zjy";
 
-export function Header() {
+interface HeaderProps {
+  onNavigate: (page: "home" | "products") => void;
+  currentPage: "home" | "products";
+}
+
+export function Header({ onNavigate, currentPage }: HeaderProps) {
   const menuItems = [
-    { label: "Nosotros", href: "#" },
-    { label: "Productos", href: "#" },
-    { label: "Servicios", href: "#" },
-    { label: "Marcas", href: "#" },
-    { label: "Contacto", href: "#" },
+    { label: "Nosotros", page: "home" as const, scrollTo: "#" },
+    { label: "Productos", page: "products" as const },
+    { label: "Servicios", page: "home" as const, scrollTo: "#" },
+    { label: "Marcas", page: "home" as const, scrollTo: "#" },
+    { label: "Contacto", page: "home" as const, scrollTo: "#" },
   ];
 
   return (
@@ -15,7 +20,10 @@ export function Header() {
         <div className="max-w-[1440px] mx-auto px-8 md:px-16 lg:px-24">
           <div className="flex items-center justify-between h-[100px] lg:h-[150px]">
             {/* Logo */}
-            <div className="flex items-center">
+            <button
+              onClick={() => onNavigate("home")}
+              className="flex items-center"
+            >
               <div className="h-[50px] w-[140px] lg:h-[63px] lg:w-[180px]">
                 <svg className="block size-full" fill="none" preserveAspectRatio="xMinYMid meet" viewBox="0 0 230 78">
                   <g>
@@ -45,18 +53,20 @@ export function Header() {
                   </g>
                 </svg>
               </div>
-            </div>
+            </button>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6 lg:gap-10">
               {menuItems.map((item) => (
-                <a
+                <button
                   key={item.label}
-                  href={item.href}
-                  className="text-black hover:text-[#CE0E2D] transition-colors duration-300 text-lg font-semibold"
+                  onClick={() => onNavigate(item.page)}
+                  className={`text-black hover:text-[#CE0E2D] transition-colors duration-300 text-lg font-semibold ${
+                    currentPage === item.page ? "text-[#CE0E2D]" : ""
+                  }`}
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
             </nav>
 
