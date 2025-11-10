@@ -1,8 +1,14 @@
 import { motion } from "motion/react";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import svgPaths from "../imports/svg-jj59f59zjy";
 
 export function ContactSection() {
+  const phoneNumber = "51967203604"; // WhatsApp number without +
+
+  const handleWhatsAppClick = () => {
+    window.open(`https://wa.me/${phoneNumber}`, "_blank");
+  };
+
   return (
     <section id="contacto" className="bg-white py-12 lg:py-16 border-t border-[#54565a]/10 w-full">
       <div className="w-full">
@@ -27,7 +33,7 @@ export function ContactSection() {
               <div className="space-y-8">
                 <div className="flex items-start gap-6">
                   <div className="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-6 h-6 text-black">
+                    <div className="w-6 h-6 text-[#25D366]">
                       <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
                         <path
                           d={svgPaths.pf668100}
@@ -38,7 +44,7 @@ export function ContactSection() {
                       </svg>
                     </div>
                   </div>
-                  <div className="space-y-2">
+                  <div className="flex-1 space-y-3">
                     <p
                       className="text-black text-sm"
                       style={{ fontFamily: "'Inter', sans-serif" }}
@@ -51,6 +57,14 @@ export function ContactSection() {
                     >
                       +51 967 203 604
                     </p>
+                    <button
+                      onClick={handleWhatsAppClick}
+                      className="bg-[#25D366] text-white px-6 py-3 rounded-full hover:bg-[#20BA5A] transition-all duration-200 flex items-center gap-2 shadow-md hover:shadow-lg"
+                      style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 500 }}
+                    >
+                      <Phone className="w-4 h-4" />
+                      Chatear ahora
+                    </button>
                   </div>
                 </div>
 

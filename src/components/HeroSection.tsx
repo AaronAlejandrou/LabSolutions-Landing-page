@@ -10,7 +10,8 @@ const slides = [
     highlight: "renovable",
     description:
       "Nos asociamos con Schroders Greencoat en una cartera de activos renovables en España de 400 MW valorada en 580 millones de euros.",
-    buttonText: "Nota de prensa",
+    buttonText: "Conoce más",
+    action: "about" as const,
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ const slides = [
     highlight: "sostenible",
     description:
       "Implementamos soluciones avanzadas en instrumentación analítica para optimizar procesos industriales y garantizar la máxima eficiencia.",
-    buttonText: "Más información",
+    buttonText: "Ver productos",
+    action: "products" as const,
   },
   {
     id: 3,
@@ -28,11 +30,16 @@ const slides = [
     highlight: "precisión",
     description:
       "Ofrecemos servicios especializados en calibración, instalación y capacitación de equipos analíticos con los más altos estándares del mercado.",
-    buttonText: "Conoce más",
+    buttonText: "Ver servicios",
+    action: "services" as const,
   },
 ];
 
-export function HeroSection() {
+interface HeroSectionProps {
+  onNavigate?: (page: "home" | "products" | "services" | "about" | "contact") => void;
+}
+
+export function HeroSection({ onNavigate }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -99,6 +106,7 @@ export function HeroSection() {
                     className="pt-2"
                   >
                     <button
+                      onClick={() => onNavigate?.(slide.action)}
                       className="bg-[#ce0e2d] text-white text-lg lg:text-xl font-bold px-10 py-3.5 rounded-full hover:bg-[#a00b24] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center"
                       style={{ fontFamily: "'Poppins', sans-serif" }}
                     >

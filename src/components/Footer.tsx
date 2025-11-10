@@ -1,7 +1,15 @@
 import { Linkedin, Instagram } from "lucide-react";
 import svgPaths from "../imports/svg-jj59f59zjy";
 
-export function Footer() {
+interface FooterProps {
+  onNavigate: (page: "home" | "products" | "services" | "about" | "contact") => void;
+}
+
+export function Footer({ onNavigate }: FooterProps) {
+  const handleWhatsAppClick = () => {
+    window.open("https://wa.me/51967203604", "_blank");
+  };
+
   return (
     <footer className="bg-[#0f0f0f] text-white py-16 lg:py-20 w-full">
       <div className="w-full">
@@ -71,13 +79,13 @@ export function Footer() {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a
-                    href="#contacto"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                  <button
+                    onClick={() => onNavigate("contact")}
+                    className="text-white/80 hover:text-white transition-colors text-sm text-left"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     Contacto
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -92,31 +100,31 @@ export function Footer() {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a
-                    href="#"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                  <button
+                    onClick={() => onNavigate("about")}
+                    className="text-white/80 hover:text-white transition-colors text-sm text-left"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     Sobre nosotros
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                  <button
+                    onClick={() => onNavigate("about")}
+                    className="text-white/80 hover:text-white transition-colors text-sm text-left"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     Misión
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                  <button
+                    onClick={() => onNavigate("about")}
+                    className="text-white/80 hover:text-white transition-colors text-sm text-left"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     Visión
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -131,13 +139,13 @@ export function Footer() {
               </h3>
               <ul className="space-y-2 mb-8">
                 <li>
-                  <a
-                    href="#productos"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                  <button
+                    onClick={() => onNavigate("products")}
+                    className="text-white/80 hover:text-white transition-colors text-sm text-left"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     Catálogos
-                  </a>
+                  </button>
                 </li>
               </ul>
 
@@ -147,6 +155,17 @@ export function Footer() {
               >
                 Servicios
               </h3>
+              <ul className="space-y-2">
+                <li>
+                  <button
+                    onClick={() => onNavigate("services")}
+                    className="text-white/80 hover:text-white transition-colors text-sm text-left"
+                    style={{ fontFamily: "'Poppins', sans-serif" }}
+                  >
+                    Ver servicios
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -166,15 +185,15 @@ export function Footer() {
             >
               <Instagram className="w-5 h-5" />
             </a>
-            <a
-              href="#"
+            <button
+              onClick={handleWhatsAppClick}
               className="w-9 h-9 bg-[#25D366] rounded flex items-center justify-center hover:bg-[#1da851] transition-colors"
               aria-label="WhatsApp"
             >
               <svg className="w-5 h-5" fill="white" viewBox="0 0 24 24">
                 <path d={svgPaths.pf668100} fillRule="evenodd" clipRule="evenodd" />
               </svg>
-            </a>
+            </button>
           </div>
 
           {/* Copyright */}

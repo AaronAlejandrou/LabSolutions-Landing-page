@@ -34,8 +34,8 @@ export function WhatsAppButton({ phoneNumber = "" }: WhatsAppButtonProps) {
     if (phoneNumber) {
       window.open(`https://wa.me/${phoneNumber}`, "_blank");
     } else {
-      // Placeholder action
-      console.log("WhatsApp button clicked - phone number not configured");
+      // Default phone number
+      window.open(`https://wa.me/51967203604`, "_blank");
     }
   };
 
@@ -44,12 +44,13 @@ export function WhatsAppButton({ phoneNumber = "" }: WhatsAppButtonProps) {
       onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="fixed bottom-8 right-8 flex items-center justify-center shadow-lg z-50 overflow-hidden"
+      className="fixed bottom-8 right-8 flex items-center justify-center shadow-lg hover:shadow-2xl z-50 overflow-hidden transition-shadow duration-300"
       style={{ backgroundColor: "#25D366" }}
       animate={{ 
         width: isHovered ? "200px" : "60px",
         height: "60px",
         borderRadius: "30px",
+        backgroundColor: isHovered ? "#20BA5A" : "#25D366",
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >

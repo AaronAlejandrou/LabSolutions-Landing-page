@@ -24,7 +24,11 @@ const services = [
   },
 ];
 
-export function ServicesSection() {
+interface ServicesSectionProps {
+  onNavigate?: (page: "home" | "products" | "services" | "about" | "contact") => void;
+}
+
+export function ServicesSection({ onNavigate }: ServicesSectionProps) {
   return (
     <section id="servicios" className="bg-white py-12 lg:py-16 border-t border-[#54565a]/10 w-full">
       <div className="w-full">
@@ -74,6 +78,7 @@ export function ServicesSection() {
                   </div>
 
                   <button
+                    onClick={() => onNavigate?.("contact")}
                     className="bg-[#ce0e2d] text-white text-lg font-semibold px-10 py-3 rounded-full hover:bg-[#a00b24] transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 mt-4 flex items-center justify-center text-center mx-auto"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
@@ -86,6 +91,7 @@ export function ServicesSection() {
 
           <div className="flex justify-center mt-12 lg:mt-16">
             <button
+              onClick={() => onNavigate?.("services")}
               className="flex items-center gap-3 text-[#ce0e2d] hover:text-[#a00b24] transition-colors duration-300 text-xl lg:text-2xl font-semibold"
               style={{ fontFamily: "'Parkinsans', sans-serif" }}
             >

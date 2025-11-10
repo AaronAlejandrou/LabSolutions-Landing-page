@@ -1,17 +1,17 @@
 import svgPaths from "../imports/svg-jj59f59zjy";
 
 interface HeaderProps {
-  onNavigate: (page: "home" | "products") => void;
-  currentPage: "home" | "products";
+  onNavigate: (page: "home" | "products" | "services" | "about" | "contact") => void;
+  currentPage: "home" | "products" | "services" | "about" | "contact";
 }
 
 export function Header({ onNavigate, currentPage }: HeaderProps) {
   const menuItems = [
-    { label: "Nosotros", page: "home" as const, scrollTo: "#" },
+    { label: "Inicio", page: "home" as const },
     { label: "Productos", page: "products" as const },
-    { label: "Servicios", page: "home" as const, scrollTo: "#" },
-    { label: "Marcas", page: "home" as const, scrollTo: "#" },
-    { label: "Contacto", page: "home" as const, scrollTo: "#" },
+    { label: "Servicios", page: "services" as const },
+    { label: "Nosotros", page: "about" as const },
+    { label: "Contacto", page: "contact" as const },
   ];
 
   return (
