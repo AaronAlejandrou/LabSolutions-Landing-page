@@ -43,9 +43,11 @@ export function ProductCard({ name, model, brand, image, onClick }: ProductCardP
         <img
           src={image}
           alt={name}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
-        
+
         {/* Overlay oscuro en hover para mejorar legibilidad */}
         <motion.div
           className="absolute inset-0 bg-black"

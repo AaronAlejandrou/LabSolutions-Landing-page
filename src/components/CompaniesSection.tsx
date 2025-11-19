@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
-import imgMarcas from "figma:asset/50d4e13e78824d5ad7e77a0a1703f711ed700e5f.png";
-import imgBayerSeeklogo from "figma:asset/04f10d29818c4202b80aa718b3a0b0c14f99eb03.png";
-import img11127LowMercklogobluergb768 from "figma:asset/1d7eea53cdf4d9493aabefca499e6cedea51e1ce.png";
-import imgPfizer2021 from "figma:asset/01f82707c0a6dac10d9e688736ae92ded4662ac9.png";
+import imgMarcas from "../assets/home-marcas.png";
+import imgBayerSeeklogo from "../assets/home-bayer.png";
+import img11127LowMercklogobluergb768 from "../assets/home-merck.png";
+import imgPfizer2021 from "../assets/home-pfizer.png";
 
 const companies = [
   { name: "Abbott", image: imgMarcas },

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import imgVector from "figma:asset/61369024fabe9b3ef1ea2ac0fd55f0dca0f0f2c1.png";
+import imgVector from "../assets/hero-vector.png";
 
 const slides = [
   {
@@ -134,11 +134,10 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`transition-all duration-300 ${
-                    index === currentSlide
+                  className={`transition-all duration-300 ${index === currentSlide
                       ? "w-8 h-3 bg-[#ce0e2d] rounded-full"
                       : "w-3 h-3 bg-white border-2 border-[#ce0e2d] rounded-full hover:bg-[#ce0e2d]/20"
-                  }`}
+                    }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}

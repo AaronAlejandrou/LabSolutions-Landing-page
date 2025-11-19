@@ -1,7 +1,7 @@
 import svgPaths from "../imports/svg-g63he7ym5m";
-import imgPlaceholderImage from "figma:asset/9bfb5a1b7441d0c42969e97edecbfb4cad951811.png";
-import imgPlaceholderImage1 from "figma:asset/dcb93039f1ada763774bed0bd798cea4a0d7036a.png";
-import imgPlaceholderImage2 from "figma:asset/9624ca9d390edf267974082a74d1feff8205777a.png";
+import imgPlaceholderImage from "../assets/about-history-1.png";
+import imgPlaceholderImage1 from "../assets/about-history-2.png";
+import imgPlaceholderImage2 from "../assets/about-history-3.png";
 import { motion } from "motion/react";
 
 interface AboutPageProps {

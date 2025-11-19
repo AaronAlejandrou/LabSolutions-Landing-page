@@ -1,4 +1,4 @@
-import img from "figma:asset/2a767d84a55e281636ad5fa00a38a42811ff70bb.png";
+import img from "../assets/frame-49.png";
 
 function Frame() {
   return (

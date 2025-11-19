@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
-import imgPlaceholderImage from "figma:asset/bcb58ba3fe21d19231aab585b259e82ed632073c.png";
-import imgPlaceholderImage6 from "figma:asset/ad5e539e57689cc38ac82d2ad82c0e965cb112d8.png";
-import imgPlaceholderImage7 from "figma:asset/b31aa4b49eeee45bfca727ad44934242bb0d38ca.png";
+import imgPlaceholderImage from "../assets/service-diagnostic-1.png";
+import imgPlaceholderImage6 from "../assets/service-training-1.png";
+import imgPlaceholderImage7 from "../assets/service-training-2.png";
 
 const services = [
   {

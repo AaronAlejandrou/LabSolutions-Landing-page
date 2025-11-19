@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import imgRectangle106 from "figma:asset/c76e741c533aaf7a964325400b8922bb745be87c.png";
+import imgRectangle106 from "../assets/home-rectangle-106.png";
 
 const products = [
   {
