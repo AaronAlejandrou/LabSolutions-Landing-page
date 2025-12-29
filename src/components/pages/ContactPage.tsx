@@ -228,7 +228,7 @@ export function ContactPage() {
                     className="text-[#54565a] text-[14px]"
                     style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 500 }}
                   >
-                    San Francisco, CA 94124
+                    Av. Jose Pardo Nro. 223 Int. 101, Miraflores, Lima - Perú
                   </span>
                 </div>
               </div>

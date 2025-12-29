@@ -105,9 +105,9 @@ export function ContactSection() {
                       className="text-black text-sm font-semibold"
                       style={{ fontFamily: "'Inter', sans-serif" }}
                     >
-                      58 Middle Point Rd
+                      Av. Jose Pardo Nro. 223 Int. 101
                       <br />
-                      San Francisco, 94124
+                      Miraflores, Lima - Perú
                     </p>
                   </div>
                 </div>
