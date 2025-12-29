@@ -1,18 +1,18 @@
 import { useState, useEffect, lazy, Suspense } from "react";
-import { Header } from "./components/Header";
-import { HeroSection } from "./components/HeroSection";
-import { CompaniesSection } from "./components/CompaniesSection";
-import { ProductsSection } from "./components/ProductsSection";
-import { ServicesSection } from "./components/ServicesSection";
-import { TestimonialsSection } from "./components/TestimonialsSection";
-import { ContactSection } from "./components/ContactSection";
-import { Footer } from "./components/Footer";
-import { WhatsAppButton } from "./components/WhatsAppButton";
+import { Header } from "./components/layout/Header";
+import { HeroSection } from "./components/home/HeroSection";
+import { CompaniesSection } from "./components/home/CompaniesSection";
+import { ProductsSection } from "./components/home/ProductsSection";
+import { ServicesSection } from "./components/home/ServicesSection";
+import { TestimonialsSection } from "./components/home/TestimonialsSection";
+import { ContactSection } from "./components/home/ContactSection";
+import { Footer } from "./components/layout/Footer";
+import { WhatsAppButton } from "./components/layout/WhatsAppButton";
 
-const ProductsPage = lazy(() => import("./components/ProductsPage").then(module => ({ default: module.ProductsPage })));
-const ServicesPage = lazy(() => import("./components/ServicesPage").then(module => ({ default: module.ServicesPage })));
-const AboutPage = lazy(() => import("./components/AboutPage").then(module => ({ default: module.AboutPage })));
-const ContactPage = lazy(() => import("./components/ContactPage").then(module => ({ default: module.ContactPage })));
+const ProductsPage = lazy(() => import("./components/pages/ProductsPage").then(module => ({ default: module.ProductsPage })));
+const ServicesPage = lazy(() => import("./components/pages/ServicesPage").then(module => ({ default: module.ServicesPage })));
+const AboutPage = lazy(() => import("./components/pages/AboutPage").then(module => ({ default: module.AboutPage })));
+const ContactPage = lazy(() => import("./components/pages/ContactPage").then(module => ({ default: module.ContactPage })));
 
 function LoadingSpinner() {
   return (
