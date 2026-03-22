@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 
 interface ProductCardProps {
   id: string;
+  abbreviation: string;
   name: string;
   model: string;
   brand: string;
@@ -10,7 +11,7 @@ interface ProductCardProps {
   onClick: () => void;
 }
 
-export function ProductCard({ name, model, brand, image, onClick }: ProductCardProps) {
+export function ProductCard({ abbreviation, name, model, brand, image, onClick }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -79,6 +80,16 @@ export function ProductCard({ name, model, brand, image, onClick }: ProductCardP
             {name}
           </motion.p>
           <motion.p
+            className="text-[14px] uppercase tracking-[1.5px]"
+            style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600 }}
+            animate={{
+              color: isHovered ? "#ffffff" : "#ce0e2d",
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            {abbreviation}
+          </motion.p>
+          <motion.p
             className="text-[18px] leading-tight"
             style={{ fontFamily: "'Poppins', sans-serif" }}
             animate={{
@@ -114,7 +125,7 @@ export function ProductCard({ name, model, brand, image, onClick }: ProductCardP
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Mas informacion
+          Ver ficha comercial
         </motion.button>
       </div>
     </motion.div>

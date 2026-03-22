@@ -200,8 +200,8 @@ export function ContactPage() {
                     {siteConfig.contact.email}
                   </span>
                 </a>
-                <a
-                  href="#"
+                <button
+                  type="button"
                   onClick={handleWhatsAppClick}
                   className="inline-flex items-center gap-2 px-5 py-3 bg-[#25D366]/10 rounded-full hover:bg-[#25D366]/20 transition-all group"
                 >
@@ -221,7 +221,7 @@ export function ContactPage() {
                   >
                     {siteConfig.contact.phoneDisplay}
                   </span>
-                </a>
+                </button>
                 <div className="inline-flex items-center gap-2 px-5 py-3 bg-[#f8f9fa] rounded-full">
                   <MapPin className="w-4 h-4 text-[#ce0e2d]" />
                   <span

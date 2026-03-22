@@ -5,33 +5,33 @@ import imgVector from "../../assets/hero-vector.png";
 const slides = [
   {
     id: 1,
-    tag: "Energías renovables",
-    title: "Avanzamos en la estrategia de nuestro negocio",
-    highlight: "renovable",
+    tag: "Instrumentacion analitica",
+    title: "Lideres en equipos para laboratorios de",
+    highlight: "alta exigencia",
     description:
-      "Nos asociamos con Schroders Greencoat en una cartera de activos renovables en España de 400 MW valorada en 580 millones de euros.",
-    buttonText: "Conoce más",
-    action: "about" as const,
-  },
-  {
-    id: 2,
-    tag: "Innovación tecnológica",
-    title: "Lideramos el cambio hacia un futuro",
-    highlight: "sostenible",
-    description:
-      "Implementamos soluciones avanzadas en instrumentación analítica para optimizar procesos industriales y garantizar la máxima eficiencia.",
+      "Explora nuestra gama de equipos de alta tecnologia, con acompañamiento tecnico integral para implementacion y continuidad operativa.",
     buttonText: "Ver productos",
     action: "products" as const,
   },
   {
-    id: 3,
-    tag: "Excelencia en servicio",
-    title: "Comprometidos con la calidad y",
-    highlight: "precisión",
+    id: 2,
+    tag: "Soporte tecnico por procesos",
+    title: "Instalamos, mantenemos, verificamos y",
+    highlight: "capacitamos",
     description:
-      "Ofrecemos servicios especializados en calibración, instalación y capacitación de equipos analíticos con los más altos estándares del mercado.",
+      "Cobertura integral en instalacion y diagnostico, mantenimiento preventivo y correctivo, verificacion operacional, capacitacion de instrumentos e implementacion de metodos.",
     buttonText: "Ver servicios",
     action: "services" as const,
+  },
+  {
+    id: 3,
+    tag: "Presencia en el mercado",
+    title: "Trabajamos con clientes estrategicos y",
+    highlight: "marcas globales",
+    description:
+      "Atendemos organizaciones como SEDAPAL, ELIFARMA, ROSTER e Instituto Quimioterapico; y trabajamos con Shimadzu, Thermo, Perkin Elmer y Agilent.",
+    buttonText: "Conocer empresa",
+    action: "about" as const,
   },
 ];
 
@@ -53,10 +53,10 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
   const slide = slides[currentSlide];
 
   return (
-    <section className="relative bg-white overflow-hidden w-full">
+    <section className="relative bg-white overflow-hidden w-full border-0">
       <div className="w-full">
         <div className="max-w-[1440px] mx-auto px-8 md:px-16 lg:px-24">
-          <div className="py-12 lg:py-16">
+          <div className="pt-10 pb-12 lg:pt-16 lg:pb-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               {/* Content - Solo esto cambia con animación */}
               <AnimatePresence mode="wait">

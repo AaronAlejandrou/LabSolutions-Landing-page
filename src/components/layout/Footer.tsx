@@ -1,15 +1,15 @@
 import { Linkedin, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
 import svgPaths from "../../assets/svg/svg-jj59f59zjy";
 import { siteConfig } from "../../config/site";
 
-interface FooterProps {
-  onNavigate: (page: "home" | "products" | "services" | "about" | "contact") => void;
-}
-
-export function Footer({ onNavigate }: FooterProps) {
+export function Footer() {
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/${siteConfig.contact.whatsApp}`, "_blank");
   };
+
+  const isLinkedInConfigured = siteConfig.social.linkedin !== "#";
+  const isInstagramConfigured = siteConfig.social.instagram !== "#";
 
   return (
     <footer className="bg-[#0f0f0f] text-white py-16 lg:py-20 w-full">
@@ -80,13 +80,13 @@ export function Footer({ onNavigate }: FooterProps) {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <button
-                    onClick={() => onNavigate("contact")}
+                  <Link
+                    to="/contacto"
                     className="text-white/80 hover:text-white transition-colors text-sm text-left"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     Contacto
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -101,31 +101,31 @@ export function Footer({ onNavigate }: FooterProps) {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <button
-                    onClick={() => onNavigate("about")}
+                  <Link
+                    to="/nosotros"
                     className="text-white/80 hover:text-white transition-colors text-sm text-left"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     Sobre nosotros
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => onNavigate("about")}
+                  <Link
+                    to="/nosotros"
                     className="text-white/80 hover:text-white transition-colors text-sm text-left"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     Misión
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => onNavigate("about")}
+                  <Link
+                    to="/nosotros"
                     className="text-white/80 hover:text-white transition-colors text-sm text-left"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     Visión
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -140,13 +140,13 @@ export function Footer({ onNavigate }: FooterProps) {
               </h3>
               <ul className="space-y-2 mb-8">
                 <li>
-                  <button
-                    onClick={() => onNavigate("products")}
+                  <Link
+                    to="/productos"
                     className="text-white/80 hover:text-white transition-colors text-sm text-left"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     Catálogos
-                  </button>
+                  </Link>
                 </li>
               </ul>
 
@@ -158,13 +158,13 @@ export function Footer({ onNavigate }: FooterProps) {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <button
-                    onClick={() => onNavigate("services")}
+                  <Link
+                    to="/servicios"
                     className="text-white/80 hover:text-white transition-colors text-sm text-left"
                     style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     Ver servicios
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -173,16 +173,30 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Social Media */}
           <div className="flex justify-center gap-4 mb-10">
             <a
-              href="#"
+              href={isLinkedInConfigured ? siteConfig.social.linkedin : undefined}
               className="w-9 h-9 bg-[#ce0e2d] rounded flex items-center justify-center hover:bg-[#a00b24] transition-colors"
               aria-label="LinkedIn"
+              target={isLinkedInConfigured ? "_blank" : undefined}
+              rel={isLinkedInConfigured ? "noopener noreferrer" : undefined}
+              onClick={(event) => {
+                if (!isLinkedInConfigured) {
+                  event.preventDefault();
+                }
+              }}
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href={isInstagramConfigured ? siteConfig.social.instagram : undefined}
               className="w-9 h-9 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded flex items-center justify-center hover:opacity-80 transition-opacity"
               aria-label="Instagram"
+              target={isInstagramConfigured ? "_blank" : undefined}
+              rel={isInstagramConfigured ? "noopener noreferrer" : undefined}
+              onClick={(event) => {
+                if (!isInstagramConfigured) {
+                  event.preventDefault();
+                }
+              }}
             >
               <Instagram className="w-5 h-5" />
             </a>
@@ -207,13 +221,13 @@ export function Footer({ onNavigate }: FooterProps) {
               <span className="text-white/30">|</span>
               <span>Todos los derechos reservados</span>
               <span className="text-white/30">|</span>
-              <a href="#" className="underline hover:text-white transition-colors">
+              <button type="button" className="underline hover:text-white transition-colors">
                 Términos y Condiciones
-              </a>
+              </button>
               <span className="text-white/30">|</span>
-              <a href="#" className="underline hover:text-white transition-colors">
+              <button type="button" className="underline hover:text-white transition-colors">
                 Política de Privacidad
-              </a>
+              </button>
             </p>
           </div>
         </div>

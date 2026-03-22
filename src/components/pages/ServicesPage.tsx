@@ -1,14 +1,15 @@
 import { servicesData } from "../../data/services";
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 
 interface ServiceCardProps {
   service: typeof servicesData[0];
   index: number;
-  phoneNumber?: string;
+  onViewDetail: (slug: string) => void;
   onNavigate?: (page: "home" | "products" | "services" | "about" | "contact") => void;
 }
 
-function ServiceCard({ service, index, phoneNumber = "", onNavigate }: ServiceCardProps) {
+function ServiceCard({ service, index, onViewDetail, onNavigate }: ServiceCardProps) {
   return (
     <motion.div
       className="flex flex-col gap-[24px] p-6 rounded-[12px] hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(206,14,45,0.12)] transition-all duration-200 ease-out"
@@ -19,19 +20,14 @@ function ServiceCard({ service, index, phoneNumber = "", onNavigate }: ServiceCa
     >
       {/* Image */}
       <div className="h-[240px] relative rounded-[8px] overflow-hidden w-full">
-        <div className="absolute inset-0">
-          {service.images.map((img, imgIndex) => (
-            <img
-              key={imgIndex}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              className="absolute max-w-none object-cover rounded-[8px] size-full"
-              style={{ objectPosition: "50% 50%" }}
-              src={img}
-            />
-          ))}
-        </div>
+        <img
+          alt={service.title}
+          loading="lazy"
+          decoding="async"
+          className="max-w-none object-cover rounded-[8px] size-full"
+          style={{ objectPosition: "50% 50%" }}
+          src={service.images[0]}
+        />
       </div>
 
       {/* Content */}
@@ -56,17 +52,30 @@ function ServiceCard({ service, index, phoneNumber = "", onNavigate }: ServiceCa
           {service.description}
         </p>
 
-        <button
-          onClick={() => onNavigate && onNavigate("contact")}
-          className="bg-[#ce0e2d] px-[24px] py-[10px] rounded-[30px] text-white text-[16px] mt-[8px] hover:bg-[#a00b24] hover:scale-105 active:scale-95 transition-all duration-150"
-          style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontWeight: 500,
-            lineHeight: "1.5"
-          }}
-        >
-          Contáctanos
-        </button>
+        <div className="flex gap-3 mt-[8px] flex-wrap justify-center">
+          <button
+            onClick={() => onViewDetail(service.slug)}
+            className="bg-[#ce0e2d] px-[24px] py-[10px] rounded-[30px] text-white text-[16px] hover:bg-[#a00b24] hover:scale-105 active:scale-95 transition-all duration-150"
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: 500,
+              lineHeight: "1.5"
+            }}
+          >
+            Ver servicio
+          </button>
+          <button
+            onClick={() => onNavigate && onNavigate("contact")}
+            className="border border-[#ce0e2d] text-[#ce0e2d] px-[24px] py-[10px] rounded-[30px] text-[16px] hover:bg-[#ce0e2d] hover:text-white transition-all duration-150"
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: 500,
+              lineHeight: "1.5"
+            }}
+          >
+            Cotizar
+          </button>
+        </div>
       </div>
     </motion.div>
   );
@@ -78,6 +87,8 @@ interface ServicesPageProps {
 }
 
 export function ServicesPage({ phoneNumber = "", onNavigate }: ServicesPageProps) {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white w-full min-h-screen">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16 lg:px-24 py-16">
@@ -99,7 +110,7 @@ export function ServicesPage({ phoneNumber = "", onNavigate }: ServicesPageProps
               lineHeight: "1.5"
             }}
           >
-            En LabSolutions Company, nos especializamos en el mantenimiento, diagnóstico y calibración de equipos de laboratorio. Nuestros servicios están diseñados para garantizar el óptimo rendimiento de sus instrumentos.
+            Nuestro enfoque de soporte tecnico se organiza en vista de procesos: instalacion y diagnostico, mantenimiento preventivo y correctivo, verificacion operacional, capacitacion e implementacion de metodos.
           </p>
         </div>
 
@@ -110,7 +121,7 @@ export function ServicesPage({ phoneNumber = "", onNavigate }: ServicesPageProps
               key={index}
               service={service}
               index={index}
-              phoneNumber={phoneNumber}
+              onViewDetail={(slug) => navigate(`/servicios/${slug}`)}
               onNavigate={onNavigate}
             />
           ))}

@@ -28,45 +28,96 @@ import imgPlaceholderImage26 from "../assets/service-verification-11.png";
 import imgPlaceholderImage27 from "../assets/service-verification-12.png";
 
 export interface Service {
+    id: string;
+    slug: string;
     title: string;
     description: string;
+    valueProposition: string;
+    deliverables: string[];
     images: string[];
+}
+
+export function getServiceBySlug(slug: string) {
+    return servicesData.find((service) => service.slug === slug);
 }
 
 export const servicesData: Service[] = [
     {
-        title: "Diagnóstico técnico de instrumentos",
-        description: "Evaluación para detectar fallas y mejorar el rendimiento del equipo.",
+        id: "instalacion-diagnostico",
+        slug: "instalacion-diagnostico",
+        title: "Instalacion y diagnostico de instrumentos",
+        description: "Evaluamos el estado del instrumento e identificamos consumibles y repuestos necesarios para asegurar su operatividad.",
+        valueProposition: "Reducimos riesgos de parada con una evaluacion tecnica completa desde el primer dia.",
+        deliverables: [
+            "Informe de estado inicial del instrumento.",
+            "Lista de consumibles y repuestos criticos.",
+            "Plan recomendado para asegurar operatividad.",
+        ],
         images: [imgPlaceholderImage, imgPlaceholderImage1],
     },
     {
-        title: "Mantenimiento correctivo",
-        description: "Reparación para restablecer su funcionamiento adecuado.",
-        images: [imgPlaceholderImage, imgPlaceholderImage2],
+        id: "mantenimiento-preventivo",
+        slug: "mantenimiento-preventivo",
+        title: "Mantenimiento preventivo",
+        description: "Desarrollamos planes de mantenimiento segun visitas de diagnostico y necesidades del laboratorio, con consumibles de entrega corta.",
+        valueProposition: "Aumentamos disponibilidad del equipo y reducimos costos de falla no programada.",
+        deliverables: [
+            "Cronograma preventivo por criticidad.",
+            "Checklists de intervencion y trazabilidad.",
+            "Recomendaciones de mejora operativa.",
+        ],
+        images: [imgPlaceholderImage2, imgPlaceholderImage],
     },
     {
-        title: "Calibración y preventivo",
-        description: "Revisión periódica para evitar fallas y asegurar precisión.",
+        id: "mantenimiento-correctivo",
+        slug: "mantenimiento-correctivo",
+        title: "Mantenimiento correctivo",
+        description: "Contamos con linea de suministro de repuestos para poner los equipos de vuelta a operacion en el menor tiempo posible.",
+        valueProposition: "Recuperamos tus equipos con respuesta tecnica y repuestos orientados a continuidad del laboratorio.",
+        deliverables: [
+            "Diagnostico de falla y causa raiz.",
+            "Cambio de repuestos y validacion funcional.",
+            "Reporte de cierre con recomendaciones preventivas.",
+        ],
+        images: [imgPlaceholderImage2, imgPlaceholderImage, imgPlaceholderImage3],
+    },
+    {
+        id: "verificacion-calificacion-operacional",
+        slug: "verificacion-calificacion-operacional",
+        title: "Verificacion / calificacion operacional",
+        description: "Aplicamos pruebas con patrones trazables para comprobar la operatividad de los equipos de acuerdo con lineamientos del fabricante.",
+        valueProposition: "Aseguramos resultados confiables y cumplimiento tecnico con evidencia trazable.",
+        deliverables: [
+            "Protocolos de prueba alineados al fabricante.",
+            "Resultados con patrones trazables.",
+            "Informe de conformidad operacional.",
+        ],
         images: [imgPlaceholderImage, imgPlaceholderImage3, imgPlaceholderImage4, imgPlaceholderImage5, imgPlaceholderImage4],
     },
     {
-        title: "Implementación de métodos",
-        description: "Desarrollo y validación de procedimientos analíticos eficientes.",
-        images: [imgPlaceholderImage, imgPlaceholderImage6, imgPlaceholderImage7, imgPlaceholderImage8, imgPlaceholderImage9],
-    },
-    {
-        title: "Capacitación de los instrumentos",
-        description: "Formación en uso y mantenimiento correcto de los equipos.",
+        id: "capacitacion-instrumentos",
+        slug: "capacitacion-instrumentos",
+        title: "Capacitacion de instrumentos",
+        description: "Nuestro staff especializado ejecuta entrenamientos segun el nivel de experiencia de usuarios y operadores.",
+        valueProposition: "Aceleramos la curva de aprendizaje para que tu equipo opere con seguridad y precision.",
+        deliverables: [
+            "Programa por nivel de experiencia del usuario.",
+            "Practicas guiadas sobre instrumentos reales.",
+            "Constancia y recomendaciones de mejora continua.",
+        ],
         images: [imgPlaceholderImage, imgPlaceholderImage10, imgPlaceholderImage11, imgPlaceholderImage12, imgPlaceholderImage13, imgPlaceholderImage14],
     },
     {
-        title: "Instalación de los instrumentos",
-        description: "Montaje y configuración para la puesta en marcha técnica.",
-        images: [imgPlaceholderImage, imgPlaceholderImage15],
-    },
-    {
-        title: "Verificación y calificación operacional",
-        description: "Pruebas para validar precisión y cumplimiento normativo.",
-        images: [imgPlaceholderImage, imgPlaceholderImage16, imgPlaceholderImage17, imgPlaceholderImage18, imgPlaceholderImage19, imgPlaceholderImage20, imgPlaceholderImage21, imgPlaceholderImage22, imgPlaceholderImage23, imgPlaceholderImage24, imgPlaceholderImage25, imgPlaceholderImage23, imgPlaceholderImage26, imgPlaceholderImage27],
+        id: "implementacion-metodos",
+        slug: "implementacion-metodos",
+        title: "Implementacion de metodos",
+        description: "Asesoramos o desarrollamos metodologias de ensayo con la documentacion requerida para procesos internos y externos.",
+        valueProposition: "Convertimos tus requerimientos analiticos en metodos robustos, auditables y listos para operacion.",
+        deliverables: [
+            "Diseno y puesta en marcha de metodologia.",
+            "Documentacion para procesos internos y externos.",
+            "Transferencia de conocimiento al equipo del laboratorio.",
+        ],
+        images: [imgPlaceholderImage15, imgPlaceholderImage6, imgPlaceholderImage7, imgPlaceholderImage8, imgPlaceholderImage9, imgPlaceholderImage16, imgPlaceholderImage17, imgPlaceholderImage18, imgPlaceholderImage19, imgPlaceholderImage20, imgPlaceholderImage21, imgPlaceholderImage22, imgPlaceholderImage23, imgPlaceholderImage24, imgPlaceholderImage25, imgPlaceholderImage23, imgPlaceholderImage26, imgPlaceholderImage27],
     },
 ];

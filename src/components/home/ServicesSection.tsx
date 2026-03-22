@@ -1,34 +1,18 @@
 import { motion } from "motion/react";
-import imgPlaceholderImage from "../../assets/service-diagnostic-1.png";
-import imgPlaceholderImage6 from "../../assets/service-training-1.png";
-import imgPlaceholderImage7 from "../../assets/service-training-2.png";
-
-const services = [
-  {
-    id: 1,
-    title: "Capacitación de los instrumentos",
-    description: "Formación en uso y mantenimiento correcto de los equipos.",
-    image: imgPlaceholderImage,
-  },
-  {
-    id: 2,
-    title: "Instalación de los instrumentos",
-    description: "Montaje y configuración para la puesta en marcha técnica.",
-    image: imgPlaceholderImage6,
-  },
-  {
-    id: 3,
-    title: "Verificación y calificación operacional",
-    description: "Pruebas para validar precisión y cumplimiento normativo.",
-    image: imgPlaceholderImage7,
-  },
-];
+import { servicesData } from "../../data/services";
 
 interface ServicesSectionProps {
   onNavigate?: (page: "home" | "products" | "services" | "about" | "contact") => void;
 }
 
 export function ServicesSection({ onNavigate }: ServicesSectionProps) {
+  const highlightedServices = servicesData.slice(0, 3).map((service, index) => ({
+    id: index + 1,
+    title: service.title,
+    description: service.description,
+    image: service.images[0],
+  }));
+
   return (
     <section id="servicios" className="bg-white py-12 lg:py-16 border-t border-[#54565a]/10 w-full">
       <div className="w-full">
@@ -43,7 +27,7 @@ export function ServicesSection({ onNavigate }: ServicesSectionProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
-            {services.map((service, index) => (
+            {highlightedServices.map((service, index) => (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, y: 20 }}

@@ -1,46 +1,14 @@
 import { motion } from "motion/react";
-import imgRectangle106 from "../../assets/home-rectangle-106.png";
-
-const products = [
-  {
-    id: 1,
-    title: "Analizador de carbono Orgánico Total",
-    description: "Mide la concentración total de carbono orgánico en una muestra, generalmente agua",
-    model: "RX - 30 -16",
-    sector: "Industrias, mineras, alimentos",
-    image: imgRectangle106,
-  },
-  {
-    id: 2,
-    title: "Analizador de carbono Orgánico Total",
-    description: "Mide la concentración total de carbono orgánico en una muestra, generalmente agua",
-    model: "RX - 30 -16",
-    sector: "Industrias, mineras, alimentos",
-    image: imgRectangle106,
-  },
-  {
-    id: 3,
-    title: "Analizador de carbono Orgánico Total",
-    description: "Mide la concentración total de carbono orgánico en una muestra, generalmente agua",
-    model: "RX - 30 -16",
-    sector: "Industrias, mineras, alimentos",
-    image: imgRectangle106,
-  },
-  {
-    id: 4,
-    title: "Analizador de carbono Orgánico Total",
-    description: "Mide la concentración total de carbono orgánico en una muestra, generalmente agua",
-    model: "RX - 30 -16",
-    sector: "Industrias, mineras, alimentos",
-    image: imgRectangle106,
-  },
-];
+import { productsData } from "../../data/products";
 
 interface ProductsSectionProps {
   onViewProducts: () => void;
+  onContact?: () => void;
 }
 
-export function ProductsSection({ onViewProducts }: ProductsSectionProps) {
+export function ProductsSection({ onViewProducts, onContact }: ProductsSectionProps) {
+  const featuredProducts = productsData.slice(0, 4);
+
   return (
     <section id="productos" className="bg-white py-12 lg:py-16 border-t border-[#54565a]/10 w-full">
       <div className="w-full">
@@ -55,7 +23,7 @@ export function ProductsSection({ onViewProducts }: ProductsSectionProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {products.map((product, index) => (
+            {featuredProducts.map((product, index) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -67,7 +35,7 @@ export function ProductsSection({ onViewProducts }: ProductsSectionProps) {
                 <div className="relative h-[194px] overflow-hidden rounded-t-[20px]">
                   <img
                     src={product.image}
-                    alt={product.title}
+                    alt={product.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -77,7 +45,7 @@ export function ProductsSection({ onViewProducts }: ProductsSectionProps) {
                     className="text-black text-2xl min-h-[60px]"
                     style={{ fontFamily: "'Barlow Semi Condensed', sans-serif", fontWeight: 500 }}
                   >
-                    {product.title}
+                    {product.name}
                   </h3>
 
                   <p
@@ -89,10 +57,7 @@ export function ProductsSection({ onViewProducts }: ProductsSectionProps) {
 
                   <div className="bg-gray-50 rounded-lg p-4 space-y-2">
                     <p className="text-black text-sm" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                      <span className="font-semibold text-[#ce0e2d]">Modelo:</span> {product.model}
-                    </p>
-                    <p className="text-black text-sm" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                      <span className="font-semibold text-[#ce0e2d]">Sector:</span> {product.sector}
+                      <span className="font-semibold text-[#ce0e2d]">Abreviatura:</span> {product.abbreviation}
                     </p>
                   </div>
 
@@ -105,6 +70,7 @@ export function ProductsSection({ onViewProducts }: ProductsSectionProps) {
                       Más información
                     </button>
                     <button
+                      onClick={onContact}
                       className="w-full border-2 border-[#ce0e2d] text-[#ce0e2d] text-lg font-semibold py-3 rounded-full hover:bg-[#ce0e2d] hover:text-white transition-all duration-300 hover:scale-105 flex items-center justify-center text-center"
                       style={{ fontFamily: "'Poppins', sans-serif" }}
                     >
